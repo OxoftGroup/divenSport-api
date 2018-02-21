@@ -1,2 +1,2 @@
-# dive-nSport-api
+# divenSport-api
 API REST, DESARROLLADA CON LARAVEL
