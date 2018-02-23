@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Styles -->
         <style>
@@ -65,6 +66,7 @@
         </style>
     </head>
     <body>
+        <script src="{{ asset('js/app.js') }}"></script>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -88,6 +90,18 @@
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+                <div class="text-center">
+                    <div class="alert alert-primary" role="alert">
+                        <b> Laravel incluye el css de bootstra 4 en css/app.css</b>
+                    </div>
+                    <div class="alert alert-secondary" role="alert">
+                            Laravel incluye jQuery, Lodash, popper, axios y  vue en
+                            js/app.js
+                    </div>                    
                 </div>
             </div>
         </div>
