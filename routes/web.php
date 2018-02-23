@@ -14,25 +14,3 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::resource('field', 'FieldController');
-
-Route::resource('game', 'GameController');
-
-Route::resource('geolocation', 'GeolocationController');
-
-Route::resource('notification', 'NotificationController');
-
-Route::resource('profile', 'ProfileController');
-
-Route::resource('rating', 'RatingController');
-
-Route::resource('sport', 'SportController');
-
-Route::resource('user', 'UserController');
-
-
-
-
-
-
