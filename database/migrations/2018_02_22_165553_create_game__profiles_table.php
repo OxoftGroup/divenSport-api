@@ -16,6 +16,7 @@ class CreateGameProfilesTable extends Migration
         Schema::create('games__players', function (Blueprint $table) {
 
             $table->increments('id');
+            
             $table->integer('game_id')->unsigned();
             $table->integer('profile_id')->unsigned();
 

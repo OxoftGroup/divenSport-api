@@ -15,13 +15,14 @@ class CreateRatingsTable extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('profile_id')->unsigned();
+            $table->integer('profile_id')->unsigned()->unique();
 
             $table->integer('lvl_1')->default(0);
             $table->integer('lvl_2')->default(0);
             $table->integer('lvl_3')->default(0);
             $table->integer('lvl_4')->default(0);
             $table->integer('lvl_5')->default(0);
+            $table->integer('qualification_number')->default(0);
 
             $table->timestamps();
 

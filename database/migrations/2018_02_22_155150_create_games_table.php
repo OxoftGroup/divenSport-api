@@ -17,19 +17,20 @@ class CreateGamesTable extends Migration
 
             $table->increments('id');
             $table->integer('creator_profile_id')->unsigned();
-
-            $table->integer('field_id')->unsigned();
+            $table->integer('field_id')->unsigned()->default(1);
+            $table->integer('geolocation_id')->unsigned()->unique();
 
             $table->string('name', 128);
+            $table->string('slug', 128)->unique();
             $table->string('address', 255)->nulable();
             $table->tinyInteger('players_number');
-            $table->decimal('reservation_cost');
+            $table->double('reservation_cost')->nullable();
 
             $table->text('image')->nulable();
             $table->text('description')->nullable();
 
-            $table->string('players_level')->nullable();
-            $table->tinyInteger('mile_radius')->default(0);
+            $table->enum('players_level', ['EVERYONE', 'BEGINNER', 'INTERMEDIATE', 'ADVANCED'])->default('EVERYONE');
+            $table->tinyInteger('mile_radius')->default(1);
 
             $table->date('start_date');
             $table->time('start_time');
@@ -46,9 +47,9 @@ class CreateGamesTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            // $table->foreign('field_id')->references('id')->on('fields')
-            //     ->onDelete('cascade')
-            //     ->onUpdate('cascade');
+            $table->foreign('field_id')->references('id')->on('fields')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

@@ -16,16 +16,12 @@ class CreateGeolocationsTable extends Migration
         Schema::create('geolocations', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('profile_id')->unsigned()->unique()->default(0);
-            $table->integer('field_id')->unsigned()->unique()->default(0);
-            $table->integer('game_id')->unsigned()->unique()->default(0);
-            
             $table->text('location')->nullable();
-            
+
             $table->double('latitude')->default(0);
             $table->double('latitude_delta')->default(0);
-            $table->double('length')->default(0);
-            $table->double('length_delta')->default(0);
+            $table->double('longitude')->default(0);
+            $table->double('longitude_delta')->default(0);
             
             $table->timestamps();
         });

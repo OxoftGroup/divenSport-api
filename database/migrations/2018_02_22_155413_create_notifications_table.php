@@ -17,10 +17,10 @@ class CreateNotificationsTable extends Migration
 
             $table->increments('id');
             $table->integer('profile_id')->unsigned();
-            $table->integer('game_id')->unsigned();
+            $table->integer('game_id')->unsigned()->unique()->default(1);
 
             $table->string('title', 128);
-            $table->string('slug', 128);
+            $table->string('slug', 128)->unique();
             $table->text('content')->nullable();
             $table->text('image')->nulable();
             $table->enum('read', ['YES', 'NO'])->default('NO');

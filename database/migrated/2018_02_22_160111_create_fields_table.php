@@ -18,6 +18,7 @@ class CreateFieldsTable extends Migration
             $table->increments('id');
 
             $table->integer('sport_id')->unsigned()->default(1);
+            $table->integer('geolocation_id')->unsigned()->unique();
 
             $table->string('name', 128)->unique();
             $table->string('slug', 128)->unique();
@@ -33,6 +34,7 @@ class CreateFieldsTable extends Migration
             $table->foreign('sport_id')->references('id')->on('sports')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+
         });
     }
 
